@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notion画像スライドショー</title>
+<style>
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: transparent;
+    }
+
+    .circle-container {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    .circle-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+</style>
+</head>
+<body>
+
+<div class="circle-container">
+    <img id="slideshow" src="https://www.notion.so/image/画像1のURL" alt="スライド画像" class="circle-image">
+</div>
+
+<script>
+    const images = [
+        "https://www.notion.so/19d0421d60fb80c08a40e73d813b24f7?v=1a30421d60fb8028a260000c8bc2de3c&pvs=4#1a30421d60fb804996f6fe6251cea793",
+        "https://www.notion.so/19d0421d60fb80c08a40e73d813b24f7?v=1a30421d60fb8028a260000c8bc2de3c&pvs=4#1a30421d60fb8090bb2ae333c57a9d42",
+        "https://www.notion.so/19d0421d60fb80c08a40e73d813b24f7?v=1a30421d60fb8028a260000c8bc2de3c&pvs=4#1a30421d60fb803d8a32e1f2d1a3746f",
+        "https://www.notion.so/19d0421d60fb80c08a40e73d813b24f7?v=1a30421d60fb8028a260000c8bc2de3c&pvs=4#1a30421d60fb8054b9fcfe664e382136",
+        "https://www.notion.so/19d0421d60fb80c08a40e73d813b24f7?v=1a30421d60fb8028a260000c8bc2de3c&pvs=4#1a30421d60fb802cbb6be3d63d80e15f"
+    ];
+
+    let index = 0;
+
+    function changeImage() {
+        index = (index + 1) % images.length;
+        document.getElementById("slideshow").src = images[index];
+    }
+
+    setInterval(changeImage, 3000); // 3秒ごとに切り替え
+</script>
+
+</body>
+</html>
